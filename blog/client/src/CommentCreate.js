@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-export default ({ postId }) => {
-  const [content, setContent] = useState('');
+const CommentCreate = ({ postId }) => {
+  const [content, setContent] = useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -11,7 +11,7 @@ export default ({ postId }) => {
       content,
     });
 
-    setContent('');
+    setContent("");
   };
 
   return (
@@ -20,9 +20,9 @@ export default ({ postId }) => {
         <div className="form-group">
           <label>New Comment</label>
           <input
-            className="form-control"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="form-control"
           />
         </div>
         <button className="btn btn-primary">Submit</button>
@@ -30,3 +30,5 @@ export default ({ postId }) => {
     </div>
   );
 };
+
+export default CommentCreate;

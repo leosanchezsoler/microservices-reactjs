@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: event-bus-deploy
+  name: event-bus-depl
 spec:
   replicas: 1
   selector:
@@ -13,20 +13,18 @@ spec:
         app: event-bus
     spec:
       containers:
-      - name: event-bus
-        image: leosanchezsoler/event-bus-service:0.01
---- 
+        - name: event-bus
+          image: leosanchezsoler/event-bus-service:0.0.2.2
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: event-bus-svc
+  name: event-bus-srv
 spec:
   selector:
     app: event-bus
   ports:
-  - name: event-bus
-    protocol: TCP
-    port: 4005
-    targetPort: 4005
-
-
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
