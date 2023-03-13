@@ -1,0 +1,13 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+metadata:
+  name: ticketing
+build:
+  artifacts:
+    - image: leosanchezsoler/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - infa/k8s/*
